@@ -25,34 +25,34 @@ app = Flask(__name__)
 #     # Return the response in json format
 #     return jsonify(response)
 
-# @app.route('/post/', methods=['POST'])
-# def post_something():
-#     data = request.data
-#     data2 = request.get_json()
-#     print(data2['name'], data2, data2['name']['price'])
-#     breakpoint()
-#     # print(data, type(data), data.__dict__)
-#     return 'POST req received'
-#     # data = json.loads(request.data)
-#     # # param = request.data['name']
-#     # print(data)
-#     # # You can add the test cases you made in the previous function, but in our case here you are just testing the POST functionality
-#     # if param:
-#     #     return jsonify({
-#     #         "Message": f"Welcome {name} to our awesome platform!!",
-#     #         # Add this option to distinct the POST request
-#     #         "METHOD" : "POST"
-#     #     })
-#     # else:
-#     #     return jsonify({
-#     #         "ERROR": "no name found, please send a name. POST"
-#     #     })
+@app.route('/post/', methods=['POST'])
+def post_something():
+    data = request.data
+    data2 = request.get_json()
+    print(data2['name'], data2, data2['name']['price'])
+    # breakpoint()
+    # print(data, type(data), data.__dict__)
+    return data2
+    # data = json.loads(request.data)
+    # # param = request.data['name']
+    # print(data)
+    # # You can add the test cases you made in the previous function, but in our case here you are just testing the POST functionality
+    # if param:
+    #     return jsonify({
+    #         "Message": f"Welcome {name} to our awesome platform!!",
+    #         # Add this option to distinct the POST request
+    #         "METHOD" : "POST"
+    #     })
+    # else:
+    #     return jsonify({
+    #         "ERROR": "no name found, please send a name. POST"
+    #     })
 
 # A welcome message to test our server
 @app.route('/')
 def index():
     return "<h1>Welcome to our server !!</h1>"
 
-# if __name__ == '__main__':
-#     # Threaded option to enable multiple instances for multiple user access support
-#     app.run(threaded=True, port=5000)
+if __name__ == '__main__':
+    # Threaded option to enable multiple instances for multiple user access support
+    app.run(threaded=True, port=5000)
