@@ -1,6 +1,5 @@
 import requests
 from flask import Flask, request, jsonify
-from datetime import date
 app = Flask(__name__)
 
 
@@ -13,6 +12,8 @@ def post_something():
     access_key = 'd7853e4ed0d5d37e8676'
     response = requests.get(f"https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey={access_key}")
     usd_cad_conv = response.json()["USD_CAD"]
+    # usd_cad_conv = response
+    print(usd_cad_conv)
 
     item_dict = {
         'items' : []
