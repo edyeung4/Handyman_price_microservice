@@ -39,7 +39,7 @@ def post_something():
         if item_dict['items'][0] == None:
             item_dict['items'][0] = {
                 'item_pos' : item['position'],
-                'price' : [{'USD' : item['price']}, {'CAD' : item['extracted_price']*curr_conv()}]
+                'price' : [{'USD' : item['price']}, {'CAD' : f"${item['extracted_price']:.2f}" }]
             }
         else:
             item_dict['items'].append({
