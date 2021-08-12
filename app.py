@@ -3,30 +3,6 @@ from flask import Flask, request, jsonify
 from datetime import date
 app = Flask(__name__)
 
-# @app.route('/getmsg/', methods=['GET'])
-# def respond():
-#     # Retrieve the name from url parameter
-#     name = request.args.get("name", None)
-
-#     # For debugging
-#     print(f"got name {name}")
-
-#     response = {}
-
-#     # Check if user sent a name at all
-#     if not name:
-#         response["ERROR"] = "no name found, please send a name."
-#     # Check if the user entered a number not a name
-#     elif str(name).isdigit():
-#         response["ERROR"] = "name can't be numeric."
-#     # Now the user entered a valid name
-#     else:
-#         response["MESSAGE"] = f"Welcome {name} to our awesome platform!!"
-
-#     # Return the response in json format
-#     return jsonify(response)
-# global curr_json = None
-
 global api_call_date
 global curr_store
 api_call_date = date.today()
@@ -68,7 +44,7 @@ def post_something():
         else:
             item_dict['items'].append({
                 'item_pos' : item['position'],
-                'price' : [{'USD' : item['price']}, {'CAD' : f"${item['extracted_price'] *curr_conv():.2f}" }]
+                'price' : [{'USD' : item['price']}, {'CAD' : f"${item['extracted_price']:.2f}" }]
             })
     return item_dict
 
