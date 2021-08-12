@@ -32,7 +32,7 @@ def post_something():
     for item in item_list:
         item_dict['items'].append({
             'item_pos' : item['position'],
-            'price' : [{'USD' : item['price']}, {'CAD' : f"${item['extracted_price']:.2f}" }]
+            'price' : [{'USD' : item['price']}, {'CAD' : f"${item['extracted_price']*usd_cad_conv:.2f}" }]
         })
     return item_dict
 
