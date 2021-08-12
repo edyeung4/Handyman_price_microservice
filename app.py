@@ -15,10 +15,13 @@ def curr_conv():
     access_key = 'd7853e4ed0d5d37e8676'
 
     if date.today() == api_call_date and curr_store is not None:
-        return 1.25
+        print('not api call')
+        return curr_store.json()['USD_CAD']
     else:
-        curr_store = requests.get(f"https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey={access_key}")
-        return 1.25
+        # curr_store = requests.get(f"https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey={access_key}")
+        curr_store = requests.get("https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey=d7853e4ed0d5d37e8676")
+        print('api call')
+        return curr_store.json()['USD_CAD']
 
 @app.route('/post/', methods=['POST'])
 def post_something():
