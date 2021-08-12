@@ -9,10 +9,9 @@ api_call_date = date.today()
 curr_store = None
 
 def curr_conv():
-    global curr_store, api_call_date
     """ Currency converter api converts USD to CAD and Eur 
         https://free.currencyconverterapi.com/ """
-
+    global curr_store, api_call_date
     access_key = 'd7853e4ed0d5d37e8676'
 
     if date.today() == api_call_date and curr_store is not None:
