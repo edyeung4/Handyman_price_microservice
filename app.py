@@ -44,7 +44,7 @@ def post_something():
         else:
             item_dict['items'].append({
                 'item_pos' : item['position'],
-                'price' : [{'USD' : item['price']}, {'CAD' : f"${item['extracted_price']:.2f}" }]
+                'price' : [{'USD' : item['price']}, {'CAD' : f"${item['extracted_price']*curr_conv():.2f}" }]
             })
     return item_dict
 
