@@ -11,9 +11,9 @@ def post_something():
     # api call to https://free.currencyconverterapi.com/
     access_key = 'd7853e4ed0d5d37e8676'
     # response = requests.get(f"https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey={access_key}")
-    response = requests.get("https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey=d7853e4ed0d5d37e8676")
-    print(response.text)
-    usd_cad_conv = response.json()["USD_CAD"]
+    response = requests.get('https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey=d7853e4ed0d5d37e8676')    
+    print(response.json())
+    usd_cad_conv = response.json()['USD_CAD']
 
     item_dict = {
         'items' : []
