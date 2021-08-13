@@ -16,9 +16,12 @@ def post_something():
     for i in response.json():
         print(i)
         key_api_store = i
-    print(type(key_api_store))
+    # print(type(key_api_store))
     # print(type(response.json()[key_api_store]))
+    # key_api_store = response.json()[0]
+    # print(key_api_store)
     usd_cad_conv = response.json()[key_api_store]
+    print(type(usd_cad_conv))
 
     item_dict = {
         'items' : []
@@ -31,7 +34,7 @@ def post_something():
     for item in item_list:
         item_dict['items'].append({
             'item_pos' : item['position'],
-            'price' : [{'USD' : item['price']}, {'CAD' : f"${item['extracted_price']*usd_cad_conv:.2f}" }]
+            'price' : [{'USD' : item['price']}, {'CAD' : f"${float(item['extracted_price'])*usd_cad_conv:.2f}" }]
         })
     return item_dict
 
