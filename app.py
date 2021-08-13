@@ -8,15 +8,9 @@ def post_something():
     """ POST request route handler makes api call to convert USD to CAD and returns 
         JSON object of item and prices"""
 
-    # api call to https://free.currencyconverterapi.com/
-    access_key = 'd7853e4ed0d5d37e8676'
+    # api call to http://api.currencylayer.com/live
     access_key2 = "879fc9b0c0d703f8e37941ecb126960e"
-    # response = requests.get(f"https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey={access_key}")
-    # response = requests.get('https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey=d7853e4ed0d5d37e8676')    
-    # response = requests.get(f'http://api.currencylayer.com/live?q=access_key={access_key2}')
-    response = requests.get("http://api.currencylayer.com/live?access_key=879fc9b0c0d703f8e37941ecb126960e&format=1")
-    # usd_cad_conv = response.json()['USD_CAD']
-    print(response.json()["quotes"]["USDCAD"])
+    response = requests.get(f"http://api.currencylayer.com/live?access_key={access_key2}")
     usd_cad_conv = response.json()["quotes"]["USDCAD"]
 
     item_dict = {
@@ -40,6 +34,6 @@ def index():
     return "<h1>Welcome to price USD-CAD converter !!</h1>"
 
 
-# if __name__ == '__main__':
-#     # Threaded option to enable multiple instances for multiple user access support
-#     app.run(threaded=True, port=5000)
+if __name__ == '__main__':
+    # Threaded option to enable multiple instances for multiple user access support
+    app.run(threaded=True, port=5000)
