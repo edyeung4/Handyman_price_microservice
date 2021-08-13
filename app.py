@@ -10,7 +10,8 @@ def post_something():
 
     # api call to https://free.currencyconverterapi.com/
     access_key = 'd7853e4ed0d5d37e8676'
-    response = requests.get(f"https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey={access_key}")
+    # response = requests.get(f"https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey={access_key}")
+    response = requests.get("https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey=d7853e4ed0d5d37e8676")
     print(response.text)
     usd_cad_conv = response.json()["USD_CAD"]
 
@@ -35,6 +36,6 @@ def index():
     return "<h1>Welcome to price USD-CAD converter !!</h1>"
 
 
-if __name__ == '__main__':
-    # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, port=5000)
+# if __name__ == '__main__':
+#     # Threaded option to enable multiple instances for multiple user access support
+#     app.run(threaded=True, port=5000)
