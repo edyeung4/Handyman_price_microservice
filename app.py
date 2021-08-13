@@ -13,7 +13,12 @@ def post_something():
     # response = requests.get(f"https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey={access_key}")
     response = requests.get('https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey=d7853e4ed0d5d37e8676')    
     print(response.json())
-    usd_cad_conv = response.json()['USD_CAD']
+    for i in response.json():
+        print(i)
+        key_api_store = i
+    print(type(key_api_store))
+    # print(type(response.json()[key_api_store]))
+    usd_cad_conv = response.json()[key_api_store]
 
     item_dict = {
         'items' : []
