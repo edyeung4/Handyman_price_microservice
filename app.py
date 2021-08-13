@@ -10,18 +10,14 @@ def post_something():
 
     # api call to https://free.currencyconverterapi.com/
     access_key = 'd7853e4ed0d5d37e8676'
+    access_key2 = "879fc9b0c0d703f8e37941ecb126960e"
     # response = requests.get(f"https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey={access_key}")
-    response = requests.get('https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey=d7853e4ed0d5d37e8676')    
-    print(response.json())
-    for i in response.json():
-        print(i)
-        key_api_store = i
-    # print(type(key_api_store))
-    # print(type(response.json()[key_api_store]))
-    # key_api_store = response.json()[0]
-    # print(key_api_store)
-    usd_cad_conv = response.json()[key_api_store]
-    print(type(usd_cad_conv))
+    # response = requests.get('https://free.currconv.com/api/v7/convert?q=USD_CAD&compact=ultra&apiKey=d7853e4ed0d5d37e8676')    
+    # response = requests.get(f'http://api.currencylayer.com/live?q=access_key={access_key2}')
+    response = requests.get("http://api.currencylayer.com/live?access_key=879fc9b0c0d703f8e37941ecb126960e&format=1")
+    # usd_cad_conv = response.json()['USD_CAD']
+    print(response.json()["quotes"]["USDCAD"])
+    usd_cad_conv = response.json()["quotes"]["USDCAD"]
 
     item_dict = {
         'items' : []
