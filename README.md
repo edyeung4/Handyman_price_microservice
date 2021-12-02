@@ -4,6 +4,7 @@ Price microservice that converts item prices from USD to CAD and returns convers
 USD - CAD Converter can be tesed at https://price-conv-service.herokuapp.com/ using any api testing tool.
 
 Example JSON return
+```
 {
 "items": [{
         "item_pos": 1,
@@ -28,3 +29,4 @@ Example JSON return
         }]
     }
 }
+```
