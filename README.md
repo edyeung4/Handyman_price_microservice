@@ -1,6 +1,8 @@
 # Price microservice
 Price microservice that converts item prices from USD to CAD and returns conversion in JSON format. 
+
 Input request to microservice must be in the form of JSON request from google search api - serpapi
+
 Example of input POST req:
 ```
 "shopping_results":
